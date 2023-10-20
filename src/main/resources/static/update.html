@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Update contact</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+<form action="" id="form">
+  <label for="id">id</label><br>
+  <input type="number" min="1" name="id" id="id"><br>
+
+  <label for="name">Имя контакта</label><br>
+  <input type="text" name="name" id="name"><br>
+
+  <label for="phone">Номер телефона</label><br>
+  <input type="tel" name="phone" id="phone"><br>
+
+  <input type="button" value="Обновить контакт" onclick="send_request()">
+</form>
+</body>
+
+<script th:src="@{/js/update.js}"></script>
+</html>
+function send_request() {
+
+let data = $('#form').serializeArray().reduce(function(obj, item) {
+obj[item.name] = item.value;
+return obj;
+}, {});
+
+data.id = Number(data.id);
+let settings = {
+"url": "/v1/contacts/" + document.getElementById("id").value,
+"type": "PATCH",
+"timeout": 0,
+"headers": {
+"Content-Type": "application/json"
+},
+"data": JSON.stringify(data),
+};
+
+$.ajax(settings).done(function (response) {
+console.log(response);
+});
+}

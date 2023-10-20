@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacts</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+<a th:href="@{/v1/contacts}">Получить список всех контактов</a><br>
+<a th:href="@{/create}">Добавить новый контакт</a><br>
+<a th:href="@{/update}">Обновить контакты</a><br><br>
+
+<label for="id"></label><input type="text" name="id" id="id">
+<input type="button" value="Получить по id" onclick="get_by_id()"><br><br>
+
+<label for="id_delete"></label><input type="text" name="id_delete" id="id_delete">
+<input type="button" value="Удалить контакт по id" onclick="delete_by_id()"><br><br>
+
+<input type="button" value="Удалить все контакты" onclick="delete_all()">
+</body>
+
+<script th:src="@{/js/index.js}"></script>
+</html>

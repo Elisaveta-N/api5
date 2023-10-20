@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Create contact</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+
+<body>
+
+<form action="" id="form">
+  <label for="name">Имя контакта</label><br>
+  <input type="text" name="name" id="name"><br>
+
+  <label for="phone">Номер телефона</label><br>
+  <input type="tel" name="phone" id="phone"><br>
+
+  <input type="button" value="Создать контакт" onclick="send_request()">
+</form>
+
+</body>
+
+<script th:src="@{/js/create.js}"></script>
+</html>
